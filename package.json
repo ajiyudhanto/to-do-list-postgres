@@ -1,0 +1,28 @@
+{
+  "name": "to-do-list-postgres",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.ts",
+  "scripts": {
+    "start-server": "tsc && node build/server.js",
+    "start": "nodemon -e ts -w ./ -x npm run start-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajiyudhanto/to-do-list-postgres.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajiyudhanto/to-do-list-postgres/issues"
+  },
+  "homepage": "https://github.com/ajiyudhanto/to-do-list-postgres#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9"
+  }
+}
