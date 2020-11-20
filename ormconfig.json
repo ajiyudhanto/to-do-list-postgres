@@ -4,8 +4,12 @@
     "port": 5432,
     "username": "postgres",
     "password": "admin",
-    "database": "to-do",
+    "database": "to_do_app",
     "entities": ["dist/entity/*.js"],
     "logging": true,
-    "synchronize": true
+    "synchronize": true,
+    "migrations": ["dist/migration/*.js"],
+    "cli": {
+        "migrationsDir": "src/migration"
+    }
   }
