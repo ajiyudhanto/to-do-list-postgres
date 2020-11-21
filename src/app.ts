@@ -10,10 +10,26 @@ createConnection().then(connection  => {
     const port = process.env.PORT || 3000;
     app.use(express.json());
     
-    // register routes
+    // routes
     
     app.get("/todos", async function(req: Request, res: Response) {
         const toDos = await toDoRepository.find();
+        function compare( a, b ) {
+            if ( a.date < b.date ){
+                return -1;
+            }
+            if ( a.date > b.date ){
+                return 1;
+            }
+            if ( a.status > b.status ){
+                return -1;
+            }
+            if ( a.status < b.status ){
+                return 1;
+            }
+            return 0;
+        }
+        toDos.sort( compare );
         res.json(toDos);
     });
     
@@ -32,12 +48,12 @@ createConnection().then(connection  => {
         const toDo = await toDoRepository.findOne(req.params.id);
         toDoRepository.merge(toDo, req.body);
         const results = await toDoRepository.save(toDo);
-        return res.send(results);
+        return res.send({ msg: 'todo edited successfully' });
     });
     
     app.delete("/todos/:id", async function(req: Request, res: Response) {
         const results = await toDoRepository.delete(req.params.id);
-        return res.send(results);
+        return res.send({ msg: 'todo deleted successfully' });
     });
     
     // start express server
