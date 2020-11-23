@@ -2,7 +2,7 @@
 
 This code is used as a back-end that can CRUD todo task.
 
-Stack that used in this code:
+Stack that are used in this code:
 - TypeORM
 - NodeJS
 - PostgreSQL
